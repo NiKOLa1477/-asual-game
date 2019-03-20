@@ -14,10 +14,11 @@ public class HeroScript : MonoBehaviour
     public Vector2 direction = new Vector2(1, 0);
     private Vector2 movement;
     Rigidbody2D rig;
-    float posX, posY, data, stars;
+    float posX, posY, data;
+    public float stars;
     float score = 0;
     public GameObject fuel;
-    
+
     void Start()
     {
         StreamReader scoredata = new StreamReader(Application.persistentDataPath + "/score.gd");

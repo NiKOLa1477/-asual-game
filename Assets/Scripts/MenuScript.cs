@@ -8,36 +8,36 @@ using UnityEngine;
 public class MenuScript : MonoBehaviour
 {
     public GUIStyle mystyle;
-    string score, stars;
     string dif;
+    public int stars, score;
+
     // Start is called before the first frame update
     void Start()
     {
         StreamReader scoredata = new StreamReader(Application.persistentDataPath + "/score.gd");
-        score = scoredata.ReadLine();
+        score = int.Parse(scoredata.ReadLine());
         scoredata.Close();
         StreamReader starsdata = new StreamReader(Application.persistentDataPath + "/stars.gd");
-        stars = starsdata.ReadLine();
+        stars = int.Parse(starsdata.ReadLine());
         starsdata.Close();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
     void OnGUI()
     {
         GUI.Box(new Rect(Screen.width * 0.70f, Screen.height * 0.7f, Screen.width * 0.7f, Screen.height * 0.1f), "Max Score:" + score, mystyle); //создаем небольшое окошко для показа пройденного расстояния
         if (GUI.Button(new Rect(Screen.width * 0.15f, Screen.height * 0.20f, Screen.width * 0.7f, Screen.height * 0.1f), "Obstacles&Fuel", mystyle)) //создаем кнопку для запуска игровой сцены
         {
-            SceneManager.LoadScene("Scene1", LoadSceneMode.Single);//Загрузка игровой сцены
+            SceneManager.LoadScene("Scene1", LoadSceneMode.Single);
         }
         if (GUI.Button(new Rect(Screen.width * 0.15f, Screen.height * 0.10f, Screen.width * 0.7f, Screen.height * 0.1f), "Only obstacles", mystyle)) //создаем кнопку для запуска игровой сцены
         {
-            SceneManager.LoadScene("Scene2", LoadSceneMode.Single);//Загрузка игровой сцены
+            SceneManager.LoadScene("Scene2", LoadSceneMode.Single);
         }
-       
+        if (GUI.Button(new Rect(Screen.width * 0.15f, Screen.height * 0.30f, Screen.width * 0.7f, Screen.height * 0.1f), "Store", mystyle)) //создаем кнопку для запуска игровой сцены
+        {
+            SceneManager.LoadScene("Scene01", LoadSceneMode.Single);
+        }
+
         GUI.Box(new Rect(Screen.width * 0.70f, Screen.height * 0.8f, Screen.width * 0.7f, Screen.height * 0.1f), "Stars:" + stars, mystyle);
     }
 }
