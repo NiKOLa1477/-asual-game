@@ -5,8 +5,9 @@ using System.Collections;
 
 public class FuelScript : MonoBehaviour
 {
-
+    
     public GameObject fuelall;
+    public HeroScript hs;
     float mytimer = 100f;
     float data;
     float score = 0;
@@ -22,21 +23,23 @@ public class FuelScript : MonoBehaviour
         score = score + 1;
         mytimer = 100f;
         mytimer -= Time.deltaTime;//изменения числа с течением времени
-        if (mytimer / mytimer == 1f) //проверка на период времени в 1 секунду
+        if (mytimer / mytimer == 1f && hs.S != 0) //проверка на период времени в 1 секунду
         {
-            fuelall.transform.position = new Vector3(fuelall.transform.position.x - 0.0055f, fuelall.transform.position.y, fuelall.transform.position.z);
-            fuelall.transform.localScale = new Vector3(fuelall.transform.localScale.x - 0.001f, 1, 1);
+            fuelall.transform.position = new Vector3(fuelall.transform.position.x - 0.0055f * hs.PowerUpSpeed, fuelall.transform.position.y, fuelall.transform.position.z);
+            fuelall.transform.localScale = new Vector3(fuelall.transform.localScale.x - 0.001f * hs.PowerUpSpeed, 1, 1);
             //выше идет сдвижение влево и уменьшение по ширине зеленой полосы для имитации шкалы
         }
         if (fuelall.transform.localScale.x < 0) //если шкала исчезла то загрузка идет загрузка главного меню 
         {
-            if (score > data)
+            if (score * hs.PowerUpSpeed > data)
             {
                 StreamWriter scoredata = new StreamWriter(Application.persistentDataPath + "/score.gd");
-                scoredata.WriteLine(score);
+                scoredata.WriteLine(score * hs.PowerUpSpeed);
                 scoredata.Close();
             }
-            SceneManager.LoadScene("Scene0", LoadSceneMode.Single);
+            fuelall.transform.position = new Vector3(transform.position.x, fuelall.transform.position.y, fuelall.transform.position.z);
+            fuelall.transform.localScale = new Vector3(1, 1, 1);
+            hs.DeathScreen();
         }
     }
 }

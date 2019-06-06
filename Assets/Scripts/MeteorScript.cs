@@ -11,6 +11,7 @@ public class MeteorScript : MonoBehaviour
     public Vector2 speed = new Vector2(10, 30);
     public Vector2 direction = new Vector2(-1, -1);
     private Vector2 movement;
+    public HeroScript hs;
     Rigidbody2D rig;
     float posX, posY;
     
@@ -24,7 +25,7 @@ public class MeteorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        score = score + 1;
+        score += hs.PowerUpSpeed;
         if (score == d)
         {
             S+=0.1f;
@@ -37,8 +38,8 @@ public class MeteorScript : MonoBehaviour
         if (col.gameObject.tag == "omc")
         {
             movement = new Vector2(
-            speed.x * direction.x * S,
-            speed.y * direction.y * S);
+            speed.x * direction.x * S * hs.PowerUpSpeed,
+            speed.y * direction.y * S * hs.PowerUpSpeed);
         }
     }
 

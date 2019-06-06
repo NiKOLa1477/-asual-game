@@ -7,6 +7,7 @@ public class GM : MonoBehaviour
 {
     public List<Skin> skins;
     int s;
+
     private void Start()
     {
         StreamReader skinsdata = new StreamReader(Application.persistentDataPath + "/skins.gd");

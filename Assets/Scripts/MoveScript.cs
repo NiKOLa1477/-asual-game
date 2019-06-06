@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class MoveScript : MonoBehaviour
 {
+    public HeroScript hs;
     float b = 100;
     public Vector2 speed = new Vector2(10, 0);
     public Vector2 direction = new Vector2(1, 0);
@@ -12,7 +13,7 @@ public class MoveScript : MonoBehaviour
     Rigidbody2D rig;
     float posX, posY;
     float S = 30;
-    float score = 0;
+    float time = 0;
 
     void Start()
     {
@@ -24,14 +25,19 @@ public class MoveScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        score = score + 1;
-        if (score == b)
+        if (hs.S == 0)
+            S = 0;
+        else
         {
-            S++;
-            b += 100;
+            time++;
+            if (time == b)
+            {
+                S++;
+                b += 100;
+            }
         }
         movement = new Vector2(
-            S * direction.x,
+            S * direction.x * hs.PowerUpSpeed,
             speed.y * direction.y);
     }
     private void FixedUpdate()

@@ -8,16 +8,9 @@ public class ShopManager : MonoBehaviour
     public List<ShopItem> Items;
     public ShopItem.ItemType ActiveSkin;
 
-    void Start()
-    {
-        CheckItemButtons();
-        gameObject.SetActive(true);
-    }
-
     public void CloseShop()
     {
-        gameObject.SetActive(false);
-        SceneManager.LoadScene("Scene0", LoadSceneMode.Single);
+        SceneManager.LoadScene("Scene00", LoadSceneMode.Single);
     }
 
     public void CheckItemButtons()
@@ -29,4 +22,5 @@ public class ShopManager : MonoBehaviour
             item.CheckButtons();
         }
     }
+
 }

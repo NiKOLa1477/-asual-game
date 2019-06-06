@@ -6,27 +6,27 @@ using UnityEngine;
 
 public class ShopItem : MonoBehaviour
 {
-    int stars;
-    
 
     private void Start()
     {
         StreamReader starsdata = new StreamReader(Application.persistentDataPath + "/stars.gd");
         stars = int.Parse(starsdata.ReadLine());
         starsdata.Close();
+        sm.CheckItemButtons();
     }
 
     public enum ItemType
     {
         First_skin,
         Second_skin,
-        Third_skin
+        Third_skin,
     }
 
     public ItemType type;
     public Button BuyBtn, ActivateBtn;
     public bool IsBought;
     public int Cost;
+    int stars;
 
     bool isActive
     {

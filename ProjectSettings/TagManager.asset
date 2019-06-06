@@ -11,6 +11,10 @@ TagManager:
   - omc
   - star2
   - star3
+  - Multiplier
+  - Immortality
+  - Timeshift
+  - Speedrun
   layers:
   - Default
   - TransparentFX
