@@ -223,6 +223,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   T: 
   level: 1
+  ActS: {fileID: 21300034, guid: 5d247c07f9334e54caf7656048e24b71, type: 3}
+  NoActS: {fileID: 21300000, guid: dfb66baddbcede648a5b41426952612c, type: 3}
   ActF: {fileID: 0}
   ActL: {fileID: 0}
   L1: {fileID: 0}
@@ -472,7 +474,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3eacc41a1ead7264ea2abaf333263030, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3947f2ef0e4de0f4dbb6d1ad43c15185, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -511,6 +513,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   T: 
   level: 2
+  ActS: {fileID: 21300000, guid: 3947f2ef0e4de0f4dbb6d1ad43c15185, type: 3}
+  NoActS: {fileID: 21300000, guid: cea5d9e1f51fc814581f4c3359faa58d, type: 3}
   ActF: {fileID: 0}
   ActL: {fileID: 0}
   L1: {fileID: 0}

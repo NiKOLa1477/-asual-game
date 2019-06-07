@@ -10,6 +10,8 @@ public class MScript : MonoBehaviour
     bool mouse;
     double n1, n2;
     public string level;
+    public Sprite ActS;
+    public Sprite NoActS;
     public GameObject ActF;
     public GameObject ActL;
     public GameObject L1;
@@ -84,9 +86,13 @@ public class MScript : MonoBehaviour
     void OnMouseEnter()
     {
         mouse = true;
+        if (T != "1" && T != "2" && T != "3" && T != "4")
+            GetComponent<SpriteRenderer>().sprite = NoActS;
     }
     void OnMouseExit()
     {
         mouse = false;
+        if (T != "1" && T != "2" && T != "3" && T != "4")
+            GetComponent<SpriteRenderer>().sprite = ActS;
     }
 }
